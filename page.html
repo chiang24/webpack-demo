@@ -65,7 +65,7 @@
 <body>
   <div id="app">
     <div class="newTask">
-      <input type="text" placeholder="请输入待办事物" v-model="newTodo" @keypress.enter="addTodo" class="input">
+      <input type="text" placeholder="请输入待办事项" v-model="newTodo" @keypress.enter="addTodo" class="input">
     </div>
     <ol class="todos">
       <li v-for="todo in todoList" class="list-item">
