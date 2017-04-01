@@ -9456,8 +9456,9 @@ var app = new _vue2.default({
     },
     removeTodo: function removeTodo(todo) {
       var index = this.todoList.indexOf(todo); // Array.prototype.indexOf 是 ES 5 新加的 API
-      this.todoList.splice(index, 1); // 不懂 splice？赶紧看 MDN 文档！
+      this.todoList.splice(index, 1);
     }
+
   }
 
 });

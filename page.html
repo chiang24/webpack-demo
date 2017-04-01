@@ -1,21 +1,70 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset=utf-8>
-  </head>
-  <body>
-    <div id="app">
-      <div class="newTask">
-        <input type="text"  v-model="newTodo" @keypress.enter="addTodo">
-      </div>
-      <ol class="todos">
-         <li v-for="todo in todoList">
-           <input type="checkbox" v-model="todo.done"> {{ todo.title }}
-          <span v-if="todo.done">已完成</span>
-          <span v-else>未完成</span>
-           <button @click="removeTodo(todo)">X</button> 
-        </li>
-      </ol>
+<head>
+  <meta charset=utf-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todo List</title>
+  <style>
+    * {
+      font-size: 14px;
+    }
+
+    #app {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .input {
+      width: 600px;
+      height: 25px;
+      line-height: 25px;
+    }
+
+    .list-item {
+      width: 600px;
+      height: 40px;
+      line-height: 40px;
+      margin-left: -1.25em;
+    }
+
+    .list-item>span {
+      vertical-align: bottom;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      float: right;
+      margin-right: 5px;
+    }
+
+    .list-item>button {
+      float: right;
+      margin: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="newTask">
+      <input type="text" placeholder="请输入待办事物" v-model="newTodo" @keypress.enter="addTodo" class="input">
     </div>
-    <script src="bundle.js"></script>
-  </body>
+    <ol class="todos">
+      <li v-for="todo in todoList" class="list-item">
+        <input type="checkbox" v-model="todo.done"> {{ todo.title }}
+        <button @click="removeTodo(todo)">x</button>
+        <span v-if="todo.done">已完成</span>
+        <span v-else>未完成</span>
+
+      </li>
+    </ol>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
 </html>
